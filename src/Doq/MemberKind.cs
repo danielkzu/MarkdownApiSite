@@ -1,9 +1,9 @@
-﻿namespace Markdown.ApiSite
+﻿namespace ClariusLabs.Doq
 {
     using System;
     using System.Linq;
 
-    public enum MemberType
+    public enum MemberKind
     {
         Unknown,
         Type,
@@ -11,6 +11,15 @@
         Property,
         Method,
         Event,
+        // Here start the extended member types 
+        // available only when you pass in an 
+        // assembly for the reading.
+        ExtensionMethod,
+        NestedType,
+        Enum,
+        Interface,
+        Class,
+        Struct,
         /*
 T
 type: class, interface, struct, enum, delegate

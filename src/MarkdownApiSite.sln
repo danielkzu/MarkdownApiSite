@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Markdown.ApiSite", "Markdown.ApiSite\Markdown.ApiSite.csproj", "{6EEA5040-9B9B-4741-8243-AF6F7936CF84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Markdown.ApiSite.Tests", "Markdown.ApiSite.Tests\Markdown.ApiSite.Tests.csproj", "{336C4F93-7C79-4574-A689-FF22755E8693}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D0BC4842-9B39-4A72-9600-EEEC50A394A6} = {D0BC4842-9B39-4A72-9600-EEEC50A394A6}
+		{1BEAB2AD-6856-4DED-B74D-137DC652139C} = {1BEAB2AD-6856-4DED-B74D-137DC652139C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Markdown.ApiSite.Console", "Markdown.ApiSite.Console\Markdown.ApiSite.Console.csproj", "{E4254368-BA85-40F0-A1B5-3F221F469505}"
 EndProject
@@ -12,6 +16,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{22B319
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{6113189A-650A-4408-BFAD-8D4B892C0025}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClariusLabs.DemoProject", "Demo\ClariusLabs.DemoProject\ClariusLabs.DemoProject.csproj", "{D0BC4842-9B39-4A72-9600-EEEC50A394A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClariusLabs.DemoSilverlight", "Demo\ClariusLabs.DemoSilverlight\ClariusLabs.DemoSilverlight.csproj", "{1BEAB2AD-6856-4DED-B74D-137DC652139C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClariusLabs.DemoMicroFramework", "Demo\ClariusLabs.DemoMicroFramework\ClariusLabs.DemoMicroFramework.csproj", "{E9BB8355-9699-491F-9702-7EEFE36A285D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doq", "Doq\Doq.csproj", "{3F235025-3AE8-4776-BE9C-6872C2932F27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doq.Tests", "Doq.Tests\Doq.Tests.csproj", "{1228A1E3-7EE4-46BA-BCBC-5B251CCDAC68}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D0BC4842-9B39-4A72-9600-EEEC50A394A6} = {D0BC4842-9B39-4A72-9600-EEEC50A394A6}
+		{E9BB8355-9699-491F-9702-7EEFE36A285D} = {E9BB8355-9699-491F-9702-7EEFE36A285D}
+		{1BEAB2AD-6856-4DED-B74D-137DC652139C} = {1BEAB2AD-6856-4DED-B74D-137DC652139C}
 	EndProjectSection
 EndProject
 Global
@@ -32,8 +53,33 @@ Global
 		{E4254368-BA85-40F0-A1B5-3F221F469505}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4254368-BA85-40F0-A1B5-3F221F469505}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4254368-BA85-40F0-A1B5-3F221F469505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0BC4842-9B39-4A72-9600-EEEC50A394A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0BC4842-9B39-4A72-9600-EEEC50A394A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0BC4842-9B39-4A72-9600-EEEC50A394A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0BC4842-9B39-4A72-9600-EEEC50A394A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BEAB2AD-6856-4DED-B74D-137DC652139C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BEAB2AD-6856-4DED-B74D-137DC652139C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BEAB2AD-6856-4DED-B74D-137DC652139C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BEAB2AD-6856-4DED-B74D-137DC652139C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9BB8355-9699-491F-9702-7EEFE36A285D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9BB8355-9699-491F-9702-7EEFE36A285D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9BB8355-9699-491F-9702-7EEFE36A285D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9BB8355-9699-491F-9702-7EEFE36A285D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F235025-3AE8-4776-BE9C-6872C2932F27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F235025-3AE8-4776-BE9C-6872C2932F27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F235025-3AE8-4776-BE9C-6872C2932F27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F235025-3AE8-4776-BE9C-6872C2932F27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1228A1E3-7EE4-46BA-BCBC-5B251CCDAC68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1228A1E3-7EE4-46BA-BCBC-5B251CCDAC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1228A1E3-7EE4-46BA-BCBC-5B251CCDAC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1228A1E3-7EE4-46BA-BCBC-5B251CCDAC68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D0BC4842-9B39-4A72-9600-EEEC50A394A6} = {6113189A-650A-4408-BFAD-8D4B892C0025}
+		{1BEAB2AD-6856-4DED-B74D-137DC652139C} = {6113189A-650A-4408-BFAD-8D4B892C0025}
+		{E9BB8355-9699-491F-9702-7EEFE36A285D} = {6113189A-650A-4408-BFAD-8D4B892C0025}
 	EndGlobalSection
 EndGlobal

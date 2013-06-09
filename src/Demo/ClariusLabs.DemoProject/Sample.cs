@@ -1,7 +1,6 @@
-﻿namespace Markdown.ApiSite.Api
+﻿namespace ClariusLabs.Demo
 {
     using System;
-    using System.Linq;
 
     /// <summary>
     /// Extension class for <see cref="Sample"/>.

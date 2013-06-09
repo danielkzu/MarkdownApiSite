@@ -1,21 +1,26 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Markdown.ApiSite.Tests</name>
+        <name>ClariusLabs.DemoSilverlight</name>
     </assembly>
     <members>
-        <member name="T:Markdown.ApiSite.Api.SampleExtensions">
+        <member name="T:ClariusLabs.Demo.Provider">
             <summary>
-            Extension class for <see cref="T:Markdown.ApiSite.Api.Sample"/>.
+            Some kind of provider for the sample
             </summary>
         </member>
-        <member name="M:Markdown.ApiSite.Api.SampleExtensions.Do(Markdown.ApiSite.Api.Sample)">
+        <member name="T:ClariusLabs.Demo.SampleExtensions">
             <summary>
-            Summary of an extension method for <see cref="T:Markdown.ApiSite.Api.Sample"/>.
+            Extension class for <see cref="T:ClariusLabs.Demo.Sample"/>.
+            </summary>
+        </member>
+        <member name="M:ClariusLabs.Demo.SampleExtensions.Do(ClariusLabs.Demo.Sample)">
+            <summary>
+            Summary of an extension method for <see cref="T:ClariusLabs.Demo.Sample"/>.
             </summary>
             <param name="sample" this="true">The sample to do on.</param>
         </member>
-        <member name="T:Markdown.ApiSite.Api.Sample">
+        <member name="T:ClariusLabs.Demo.Sample">
             <summary>
             Sample API documentation. This is the summary.
             With every line we will have the same 
@@ -34,26 +39,26 @@
             <code>
             var code = new SomeCodeTagWithinRemarks();
             </code>
-            You can use <see cref="T:Markdown.ApiSite.Api.Provider"/> see tag within sections.
+            You can use <see cref="T:ClariusLabs.Demo.Provider"/> see tag within sections.
             <para>
             We can have paragraphs anywhere.
             </para>
             </remarks>
-            <seealso cref="T:Markdown.ApiSite.Api.Provider"/>
+            <seealso cref="T:ClariusLabs.Demo.Provider"/>
         </member>
-        <member name="M:Markdown.ApiSite.Api.Sample.#ctor">
+        <member name="M:ClariusLabs.Demo.Sample.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Markdown.ApiSite.Api.Sample"/> class.
+            Initializes a new instance of the <see cref="T:ClariusLabs.Demo.Sample"/> class.
             </summary>
         </member>
-        <member name="M:Markdown.ApiSite.Api.Sample.GetValue(System.Int32)">
+        <member name="M:ClariusLabs.Demo.Sample.GetValue(System.Int32)">
             <summary>
             Gets the value for the given id.
             </summary>
             <param name="id">The id to get the value for.</param>
             <returns><see langword="true"/> if the value <c>true</c> (with c tag); <see langword="false"/> otherwise.</returns>
         </member>
-        <member name="P:Markdown.ApiSite.Api.Sample.Id">
+        <member name="P:ClariusLabs.Demo.Sample.Id">
             <summary>
             Gets or sets the id.
             </summary>
@@ -61,12 +66,12 @@
             The id of this sample.
             </value>
         </member>
-        <member name="T:Markdown.ApiSite.Api.Sample.NestedType">
+        <member name="T:ClariusLabs.Demo.Sample.NestedType">
             <summary>
             A nested type
             </summary>
         </member>
-        <member name="P:Markdown.ApiSite.Api.Sample.NestedType.NestedTypeProperty">
+        <member name="P:ClariusLabs.Demo.Sample.NestedType.NestedTypeProperty">
             <summary>
             Gets or sets the nested type property.
             </summary>

@@ -18,6 +18,7 @@
                 .FirstOrDefault();
 
             Assert.NotNull(typed);
+            Assert.NotNull(typed.Info);
         }
 
         [Fact]
@@ -28,6 +29,7 @@
                 .FirstOrDefault();
 
             Assert.NotNull(typed);
+            Assert.NotNull(typed.Info);
         }
     }
 }

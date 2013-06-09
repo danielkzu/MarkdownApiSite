@@ -2,14 +2,34 @@
 {
     public class Visitor
     {
-        public virtual void VisitType(Type type)
+        public virtual void VisitType(TypeDeclaration type)
         {
             VisitMember(type);
         }
 
         public virtual void VisitNestedType(NestedType type)
         {
-            VisitMember(type);
+            VisitType(type);
+        }
+
+        public virtual void VisitInterface(Interface type)
+        {
+            VisitType(type);
+        }
+        
+        public virtual void VisitClass(Class type)
+        {
+            VisitType(type);
+        }
+
+        public virtual void VisitStruct(Struct type)
+        {
+            VisitType(type);
+        }
+
+        public virtual void VisitEnum(Enum type)
+        {
+            VisitType(type);
         }
 
         public virtual void VisitField(Field field)

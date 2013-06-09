@@ -20,20 +20,20 @@ namespace ClariusLabs.Doq
 {
     using System.Collections.Generic;
 
-    public class NestedType : Member
+    public class ExtensionMethod : Member
     {
-        public NestedType(string memberId, string declaringTypeId, IEnumerable<Element> elements)
+        public ExtensionMethod(string memberId, string extendedTypeId, IEnumerable<Element> elements)
             : base(memberId, elements)
         {
-            this.DeclaringTypeId = declaringTypeId;
+            this.ExtendedTypeId = extendedTypeId;
         }
 
-        public string DeclaringTypeId { get; private set; }
-        public override MemberKind Kind { get { return MemberKind.NestedType; } }
+        public string ExtendedTypeId { get; set; }
+        public override MemberKinds Kind { get { return MemberKinds.Method | MemberKinds.ExtensionMethod; } }
 
         public override void Accept(Visitor visitor)
         {
-            visitor.VisitNestedType(this);
+            visitor.VisitExtensionMethod(this);
         }
     }
 }

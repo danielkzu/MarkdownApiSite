@@ -34,26 +34,46 @@
             return doc.Root.Element("members").Elements("member")
                 .Select(element => CreateMember(element.Attribute("name").Value, ReadContent(element)))
                 .Select(member => ReplaceExtensionMethods(member, map))
-                .Select(member => ReplaceNestedTypes(member, map));
+                .Select(member => ReplaceTypes(member, map))
+                .Select(member => SetInfo(member, map));
         }
 
-        private static Member ReplaceNestedTypes(Member member, MemberIdMap map)
+        private static Member SetInfo(Member member, MemberIdMap map)
         {
-            if (member.Kind != MemberKind.Type)
+            member.Info = map.GetOrDefault(member.ToString());
+
+            return member;
+        }
+
+        private static Member ReplaceTypes(Member member, MemberIdMap map)
+        {
+            if (member.Kind != MemberKinds.Type)
                 return member;
 
-            var type = map.GetOrDefault(member.ToString());
+            var type = (Type)map.GetOrDefault(member.ToString());
+            if (type == null)
+                return member;
+
             var nestingTypeId = "";
-            if (type == null || type.DeclaringType == null || 
-                string.IsNullOrEmpty((nestingTypeId = map.GetOrDefault(type.DeclaringType))))
-                return member;
+            if (type.DeclaringType != null &&
+                !string.IsNullOrEmpty((nestingTypeId = map.GetOrDefault(type.DeclaringType))))
+                return new NestedType(member.ToString(), nestingTypeId, member.Elements);
 
-            return new NestedType(member.ToString(), nestingTypeId, member.Elements);
+            if (type.IsInterface)
+                return new Interface(member.ToString(), member.Elements);
+            if (type.IsClass)
+                return new Class(member.ToString(), member.Elements);
+            if (type.IsEnum)
+                return new Enum(member.ToString(), member.Elements);
+            if (type.IsValueType)
+                return new Struct(member.ToString(), member.Elements);
+
+            return member;
         }
 
         private static Member ReplaceExtensionMethods(Member member, MemberIdMap map)
         {
-            if (member.Kind != MemberKind.Method)
+            if (member.Kind != MemberKinds.Method)
                 return member;
 
             var method = (MethodBase)map.GetOrDefault(member.ToString());
@@ -75,7 +95,7 @@
             switch (memberId[0])
             {
                 case 'T':
-                    return new Type(memberId, elements);
+                    return new TypeDeclaration(memberId, elements);
                 case 'F':
                     return new Field(memberId, elements);
                 case 'P':

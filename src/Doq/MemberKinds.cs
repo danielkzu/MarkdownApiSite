@@ -3,23 +3,28 @@
     using System;
     using System.Linq;
 
-    public enum MemberKind
+    /// <summary>
+    /// Kind (or kinds for semantically-augmented readings) 
+    /// of member node.
+    /// </summary>
+    [Flags]
+    public enum MemberKinds
     {
-        Unknown,
-        Type,
-        Field,
-        Property,
-        Method,
-        Event,
+        Unknown = 0,
+        Type = 1,
+        Field = 2,
+        Property = 4,
+        Method = 8,
+        Event = 16,
         // Here start the extended member types 
         // available only when you pass in an 
         // assembly for the reading.
-        ExtensionMethod,
-        NestedType,
-        Enum,
-        Interface,
-        Class,
-        Struct,
+        ExtensionMethod = 32,
+        NestedType = 64,
+        Enum = 128,
+        Interface = 256,
+        Class = 512,
+        Struct = 1024,
         /*
 T
 type: class, interface, struct, enum, delegate

@@ -20,18 +20,20 @@ namespace ClariusLabs.Doq
 {
     using System.Collections.Generic;
 
-    public class UnknownMember : Member
+    public class NestedType : TypeDeclaration
     {
-        public UnknownMember(string memberId, IEnumerable<Element> elements)
+        public NestedType(string memberId, string declaringTypeId, IEnumerable<Element> elements)
             : base(memberId, elements)
         {
+            this.DeclaringTypeId = declaringTypeId;
         }
+
+        public string DeclaringTypeId { get; private set; }
+        public override MemberKinds Kind { get { return MemberKinds.NestedType; } }
 
         public override void Accept(Visitor visitor)
         {
-            visitor.VisitUnknownMember(this);
+            visitor.VisitNestedType(this);
         }
-
-        public override MemberKinds Kind { get { return MemberKinds.Unknown; } }
     }
 }

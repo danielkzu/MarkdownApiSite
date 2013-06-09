@@ -27,7 +27,7 @@ namespace ClariusLabs.Doq
         {
         }
 
-        public override MemberKind Kind { get { return MemberKind.Method; } }
+        public override MemberKinds Kind { get { return MemberKinds.Method; } }
 
         public override void Accept(Visitor visitor)
         {

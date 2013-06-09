@@ -20,18 +20,18 @@ namespace ClariusLabs.Doq
 {
     using System.Collections.Generic;
 
-    public class UnknownMember : Member
+    public class Struct : TypeDeclaration
     {
-        public UnknownMember(string memberId, IEnumerable<Element> elements)
+        public Struct(string memberId, IEnumerable<Element> elements)
             : base(memberId, elements)
         {
         }
 
+        public override MemberKinds Kind { get { return MemberKinds.Type | MemberKinds.Struct; } }
+
         public override void Accept(Visitor visitor)
         {
-            visitor.VisitUnknownMember(this);
+            visitor.VisitStruct(this);
         }
-
-        public override MemberKinds Kind { get { return MemberKinds.Unknown; } }
     }
 }

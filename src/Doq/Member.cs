@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
 
     public abstract class Member : Container
     {
@@ -16,7 +17,13 @@
         }
 
         public string Id { get; private set; }
-        public abstract MemberKind Kind { get; }
+        public abstract MemberKinds Kind { get; }
+
+        /// <summary>
+        /// Gets the reflection information for this member, 
+        /// if the reading process used an assembly.
+        /// </summary>
+        public MemberInfo Info { get; set; }
 
         public override string ToString()
         {

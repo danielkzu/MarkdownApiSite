@@ -20,18 +20,18 @@ namespace ClariusLabs.Doq
 {
     using System.Collections.Generic;
 
-    public class Type : Member
+    public class Enum : TypeDeclaration
     {
-        public Type(string memberId, IEnumerable<Element> elements)
+        public Enum(string memberId, IEnumerable<Element> elements)
             : base(memberId, elements)
         {
         }
 
-        public override MemberKind Kind { get { return MemberKind.Type; } }
+        public override MemberKinds Kind { get { return MemberKinds.Type | MemberKinds.Enum; } }
 
         public override void Accept(Visitor visitor)
         {
-            visitor.VisitType(this);
+            visitor.VisitEnum(this);
         }
     }
 }

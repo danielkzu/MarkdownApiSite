@@ -18,22 +18,21 @@
 
 namespace ClariusLabs.Doq
 {
+    using System;
     using System.Collections.Generic;
 
-    public class ExtensionMethod : Member
+    public class Class : TypeDeclaration
     {
-        public ExtensionMethod(string memberId, string extendedTypeId, IEnumerable<Element> elements)
+        public Class(string memberId, IEnumerable<Element> elements)
             : base(memberId, elements)
         {
-            this.ExtendedTypeId = extendedTypeId;
         }
 
-        public string ExtendedTypeId { get; set; }
-        public override MemberKind Kind { get { return MemberKind.ExtensionMethod; } }
+        public override MemberKinds Kind { get { return MemberKinds.Type | MemberKinds.Class; } }
 
         public override void Accept(Visitor visitor)
         {
-            visitor.VisitExtensionMethod(this);
+            visitor.VisitClass(this);
         }
     }
 }

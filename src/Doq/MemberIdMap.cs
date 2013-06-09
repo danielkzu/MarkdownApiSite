@@ -35,7 +35,7 @@ namespace ClariusLabs.Doq
             AddRange(assembly.GetTypes());
         }
 
-        public void AddRange(IEnumerable<System.Type> types)
+        public void AddRange(IEnumerable<Type> types)
         {
             foreach (var type in types)
             {
@@ -43,7 +43,7 @@ namespace ClariusLabs.Doq
             }
         }
 
-        public void Add(System.Type type)
+        public void Add(Type type)
         {
             var members = type.GetMembers(BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
 
@@ -67,9 +67,9 @@ namespace ClariusLabs.Doq
             return result;
         }
 
-        private void Add(System.Type type, MemberInfo member)
+        private void Add(Type type, MemberInfo member)
         {
-            System.Type nestedType = null;
+            Type nestedType = null;
 
             sb.Length = 0;
 
@@ -92,7 +92,7 @@ namespace ClariusLabs.Doq
                     Append((MethodInfo)member);
                     break;
                 case MemberTypes.NestedType:
-                    nestedType = (System.Type)member;
+                    nestedType = (Type)member;
                     sb.Append("T:");
                     AppendNestedType(nestedType);
                     break;
@@ -177,7 +177,7 @@ namespace ClariusLabs.Doq
             Append(constructor.GetParameters());
         }
 
-        private void AppendNestedType(System.Type type)
+        private void AppendNestedType(Type type)
         {
             if (type.IsNestedPrivate)
             {
@@ -188,7 +188,7 @@ namespace ClariusLabs.Doq
             AppendType(sb, type);
         }
 
-        private void AppendType(StringBuilder sb, System.Type type)
+        private void AppendType(StringBuilder sb, Type type)
         {
             if (type.DeclaringType != null)
             {

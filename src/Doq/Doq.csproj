@@ -37,8 +37,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NestedType.cs" />
-    <Compile Include="ExtensionMethod.cs" />
+    <Compile Include="Semantic\Class.cs" />
+    <Compile Include="Semantic\Enum.cs" />
+    <Compile Include="Semantic\Struct.cs" />
+    <Compile Include="Semantic\NestedType.cs" />
+    <Compile Include="Semantic\ExtensionMethod.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Field.cs" />
     <Compile Include="Method.cs" />
@@ -46,6 +49,7 @@
     <Compile Include="MemberIdMap.cs" />
     <Compile Include="See.cs" />
     <Compile Include="SeeAlso.cs" />
+    <Compile Include="Semantic\Interface.cs" />
     <Compile Include="Text.cs" />
     <Compile Include="C.cs" />
     <Compile Include="Code.cs" />
@@ -57,10 +61,10 @@
     <Compile Include="Reader.cs" />
     <Compile Include="Remarks.cs" />
     <Compile Include="Summary.cs" />
-    <Compile Include="Type.cs" />
+    <Compile Include="TypeDeclaration.cs" />
     <Compile Include="UnknownMember.cs" />
     <Compile Include="Visitor.cs" />
-    <Compile Include="MemberKind.cs" />
+    <Compile Include="MemberKinds.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
